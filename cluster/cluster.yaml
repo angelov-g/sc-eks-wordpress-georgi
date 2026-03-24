@@ -1,0 +1,20 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: wordpress-cluster
+  region: eu-west-1
+  version: "1.35"
+
+vpc:
+  id: vpc-031317dac7acdc1ff
+  subnets:
+    public:
+      eu-west-1a: { id: subnet-06f3e5a4bbe05bc36 }
+      eu-west-1b: { id: subnet-03514fcf4f6980c5d }
+    private:
+      eu-west-1a: { id: subnet-0a11215793634e586 }
+      eu-west-1b: { id: subnet-0c9437da80f288a45 }
+  nat:
+    gateway: Disable
+
