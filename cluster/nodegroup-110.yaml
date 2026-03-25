@@ -6,7 +6,7 @@ metadata:
   region: eu-west-1
 
 managedNodeGroups:
-  - name: managed
+  - name: managed-110
     labels: { role: workers }
     instanceTypes: ["t3.medium"]
     amiFamily: AmazonLinux2023
