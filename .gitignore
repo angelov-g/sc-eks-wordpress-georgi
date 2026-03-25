@@ -1,5 +1,3 @@
-*-secrets.yaml
-values-secrets.yaml
-*.secret.yaml
 setup
 .DS_Store
+/argo-rollouts
