@@ -7,21 +7,10 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
-  sources:
-    - repoURL: https://charts.bitnami.com/bitnami
-      chart: wordpress
-      targetRevision: 29.2.8
-      helm:
-        valueFiles:
-          - $repo-root/apps/wordpress/values.yaml
-    - repoURL: https://github.com/angelov-g/sc-eks-wordpress-georgi.git
-      targetRevision: HEAD
-      ref: repo-root
-    - repoURL: https://github.com/angelov-g/sc-eks-wordpress-georgi.git
-      targetRevision: HEAD
-      path: apps/wordpress
-      directory:
-        exclude: "values.yaml"
+  source:
+    repoURL: https://github.com/angelov-g/sc-eks-wordpress-georgi.git
+    targetRevision: HEAD
+    path: apps/wordpress
   destination:
     server: https://kubernetes.default.svc
     namespace: wordpress
