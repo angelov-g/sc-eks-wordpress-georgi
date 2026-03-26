@@ -1,6 +1,6 @@
 wordpressUsername: admin
-wordpressPassword: "wppassword"
 wordpressEmail: georgi@example.com
+wordpressExistingSecret: wordpress-credentials
 
 wordpressScheme: https
 wordpressBlogName: "My WordPress Site"
@@ -23,8 +23,7 @@ ingress:
 
 mariadb:
   auth:
-    rootPassword: "rootdbpassword"
-    password: "dbpassword"
+    existingSecret: wordpress-credentials
   primary:
     persistence:
       enabled: true
