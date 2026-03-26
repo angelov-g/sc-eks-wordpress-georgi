@@ -17,6 +17,11 @@ spec:
     - repoURL: https://github.com/angelov-g/sc-eks-wordpress-georgi.git
       targetRevision: HEAD
       ref: repo-root
+    - repoURL: https://github.com/angelov-g/sc-eks-wordpress-georgi.git
+      targetRevision: HEAD
+      path: apps/wordpress
+      directory:
+        exclude: "values.yaml"
   destination:
     server: https://kubernetes.default.svc
     namespace: wordpress
