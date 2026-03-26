@@ -15,5 +15,7 @@ spec:
     server: https://kubernetes.default.svc
     namespace: wordpress
   syncPolicy:
+    automated:
+      enabled: true
     syncOptions:
-      - CreateNamespace=true
+    - CreateNamespace=true
