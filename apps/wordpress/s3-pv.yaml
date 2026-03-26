@@ -19,3 +19,5 @@ spec:
     volumeHandle: wordpress-s3-pv
     volumeAttributes:
       bucketName: wordpress-media-876595225247
+      authenticationSource: driver
+
