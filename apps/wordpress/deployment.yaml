@@ -23,11 +23,18 @@ spec:
                   matchLabels:
                     app: wordpress
                 topologyKey: kubernetes.io/hostname
+      volumes:
+      - name: persistent-storage
+        persistentVolumeClaim:
+          claimName: s3-pvc
       containers:
         - name: wordpress
           image: wordpress:latest
           ports:
             - containerPort: 80
+          volumeMounts:
+            - name: persistent-storage
+              mountPath: /var/www/html/wp-content/uploads
           env:
             - name: WORDPRESS_DB_HOST
               valueFrom:
