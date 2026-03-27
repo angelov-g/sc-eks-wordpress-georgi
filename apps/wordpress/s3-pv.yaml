@@ -20,3 +20,5 @@ spec:
     volumeHandle: wordpress-media # Must be unique
     volumeAttributes:
       bucketName: wordpress-media-876595225247
+      authenticationSource: driver
+
