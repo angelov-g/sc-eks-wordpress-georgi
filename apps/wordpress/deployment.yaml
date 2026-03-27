@@ -28,9 +28,6 @@ spec:
           image: wordpress:latest
           ports:
             - containerPort: 80
-          volumeMounts:
-            - name: s3-storage
-              mountPath: /var/www/html/wp-content/uploads
           env:
             - name: WORDPRESS_DB_HOST
               valueFrom:
@@ -53,9 +50,3 @@ spec:
                   name: wordpress-credentials
                   key: db-name
                   volumeMounts:
-            - name: s3-storage
-              mountPath: /var/www/html/wp-content/uploads
-      volumes:
-        - name: s3-storage
-          persistentVolumeClaim:
-            claimName: wordpress-s3-pvc
