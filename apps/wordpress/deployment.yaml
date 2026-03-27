@@ -24,17 +24,22 @@ spec:
                     app: wordpress
                 topologyKey: kubernetes.io/hostname
       volumes:
-      - name: persistent-storage
+      - name: persistent-storage-s3
         persistentVolumeClaim:
           claimName: s3-pvc
+      - name: persistent-storage-efs
+        persistentVolumeClaim:
+          claimName: efs-pvc
       containers:
         - name: wordpress
           image: wordpress:latest
           ports:
             - containerPort: 80
           volumeMounts:
-            - name: persistent-storage
+            - name: persistent-storage-s3
               mountPath: /var/www/html/wp-content/uploads
+            - name: persistent-storage-efs
+              mountPath: /var/www/html/wp-content/efs
           env:
             - name: WORDPRESS_DB_HOST
               valueFrom:
@@ -56,4 +61,3 @@ spec:
                 secretKeyRef:
                   name: wordpress-credentials
                   key: db-name
-                  volumeMounts:
